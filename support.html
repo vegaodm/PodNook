@@ -8,57 +8,34 @@
 <meta name="theme-color" content="#0A5BFF">
 <style>
   :root {
-    --bg: #f5f5f7;
-    --card: #ffffff;
-    --text: #1d1d1f;
-    --muted: #6e6e73;
-    --accent: #0a5bff;
-    --border: #d2d2d7;
-    --chip: #eef2ff;
-    --ok: #1a7f37;
-    --warn: #a15c00;
+    --bg: #f5f5f7; --card: #ffffff; --text: #1d1d1f; --muted: #6e6e73;
+    --accent: #0a5bff; --border: #d2d2d7; --chip: #eef2ff;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #0b0b10;
-      --card: #16161c;
-      --text: #f5f5f7;
-      --muted: #9a9aa5;
-      --accent: #7db4ff;
-      --border: #2a2a32;
-      --chip: #1b2440;
-      --ok: #4ac26b;
-      --warn: #e0a33e;
+      --bg: #0b0b10; --card: #16161c; --text: #f5f5f7; --muted: #9a9aa5;
+      --accent: #7db4ff; --border: #2a2a32; --chip: #1b2440;
     }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-text-size-adjust: 100%;
-    padding: 0 16px 60px;
+    background: var(--bg); color: var(--text); line-height: 1.7;
+    -webkit-text-size-adjust: 100%; padding: 0 16px 60px;
   }
-  .container { max-width: 760px; margin: 0 auto; }
-  header { text-align: center; padding: 44px 0 22px; }
-  header .logo {
-    font-size: 14px; font-weight: 700; color: var(--accent);
-    letter-spacing: 1.5px; text-transform: uppercase;
-  }
+  .container { max-width: 780px; margin: 0 auto; }
+  header { text-align: center; padding: 44px 0 18px; }
+  header .logo { font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase; }
   header h1 { font-size: 30px; font-weight: 700; margin-top: 10px; letter-spacing: -0.6px; }
   header .updated { margin-top: 8px; font-size: 13px; color: var(--muted); }
-  .langbar { display: flex; justify-content: center; gap: 8px; padding: 4px 0 22px; }
+  .langbar { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 4px 0 22px; }
   .langbar button {
-    font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
-    padding: 7px 16px; border-radius: 999px;
+    font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer;
+    padding: 6px 13px; border-radius: 999px;
     border: 1px solid var(--border); background: var(--card); color: var(--muted);
   }
   .langbar button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 18px; padding: 26px; margin-bottom: 16px;
-  }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 26px; margin-bottom: 16px; }
   .hero { background: var(--chip); border-color: transparent; }
   h2 { font-size: 19px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.2px; }
   h3 { font-size: 15px; font-weight: 600; margin: 20px 0 6px; }
@@ -66,34 +43,22 @@
   p + p { margin-top: 10px; }
   ul, ol { margin: 8px 0 0 22px; }
   li + li { margin-top: 6px; }
-  code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 13px; padding: 1px 5px; border-radius: 5px;
-    background: var(--chip); color: var(--text);
-  }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; padding: 1px 5px; border-radius: 5px; background: var(--chip); }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .muted { color: var(--muted); font-size: 13.5px; }
   .steps { counter-reset: step; list-style: none; margin-left: 0; }
-  .steps li {
-    counter-increment: step; position: relative;
-    padding-left: 36px; margin-top: 12px;
-  }
+  .steps li { counter-increment: step; position: relative; padding-left: 36px; margin-top: 12px; }
   .steps li::before {
     content: counter(step); position: absolute; left: 0; top: 1px;
     width: 24px; height: 24px; border-radius: 50%;
-    background: var(--accent); color: #fff;
-    font-size: 13px; font-weight: 700; text-align: center; line-height: 24px;
+    background: var(--accent); color: #fff; font-size: 13px; font-weight: 700;
+    text-align: center; line-height: 24px;
   }
   table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
   th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
   th { font-weight: 600; color: var(--muted); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.4px; }
   td:first-child { width: 44%; }
-  .tag {
-    display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px;
-    border-radius: 999px; background: var(--chip); color: var(--accent); margin-left: 6px;
-  }
-  .faq p + p { margin-top: 8px; }
   footer { text-align: center; color: var(--muted); font-size: 13px; padding-top: 26px; }
   footer a { margin: 0 6px; }
   [hidden] { display: none !important; }
@@ -104,72 +69,74 @@
   <header>
     <div class="logo">PodNook</div>
     <h1 id="pageTitle">Support</h1>
-    <div class="updated" id="pageUpdated">Version 1.0.0 · Last updated: November 22, 2026</div>
+    <div class="updated" id="pageUpdated">Version 1.1 · Last updated: November 23, 2026</div>
   </header>
 
-  <div class="langbar">
+  <div class="langbar" role="group" aria-label="Language">
     <button type="button" id="btn-en" aria-pressed="true">English</button>
     <button type="button" id="btn-zh" aria-pressed="false">中文</button>
+    <button type="button" id="btn-de" aria-pressed="false">Deutsch</button>
+    <button type="button" id="btn-fr" aria-pressed="false">Français</button>
+    <button type="button" id="btn-it" aria-pressed="false">Italiano</button>
   </div>
 
   <!-- ============================ ENGLISH ============================ -->
   <div data-lang="en">
     <div class="card hero">
       <h2>Need help?</h2>
-      <p>Most questions are answered below. If not, email
-        <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a> and include your iOS version, the feed URL,
-        and what you tapped right before the problem.</p>
+      <p>PodNook 1.1 is available in English, German, French and Italian. Most questions are answered below.
+        If not, email <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a> with your iOS version,
+        the feed URL and what you tapped right before the problem.</p>
     </div>
 
     <div class="card">
       <h2>Getting started</h2>
-
       <h3>Subscribe to a podcast</h3>
       <ol class="steps">
-        <li>Open <strong>Library</strong> and tap <strong>+</strong> in the header.</li>
-        <li>Paste the show's RSS feed URL (for example <code>https://feeds.npr.org/510289/podcast.xml</code>).</li>
+        <li>Open <strong>Library</strong> and tap <strong>+</strong>.</li>
+        <li>Paste the show’s RSS feed URL (for example <code>https://feeds.npr.org/510289/podcast.xml</code>).</li>
         <li>Tap <strong>Subscribe</strong>. PodNook fetches the feed once and stores it locally.</li>
       </ol>
-      <p class="muted">A plain website URL will not work — PodNook needs an RSS or Atom feed address.</p>
+      <p class="muted">A website address will not work — it must be an RSS or Atom feed.</p>
 
-      <h3>Import an OPML export <span class="tag">AntennaPod · Overcast · Pocket Casts</span></h3>
+      <h3>Import an OPML export</h3>
       <ol class="steps">
-        <li>Export your subscriptions as OPML from the other podcast app.</li>
-        <li>Either keep the file anywhere in the Files app, or drop it into
-          <strong>Files → On My iPhone → PodNook</strong>.</li>
-        <li>Open PodNook → <strong>Settings</strong> → <strong>Import OPML</strong>, then pick the file.</li>
-        <li>PodNook shows how many shows it found and imports them three at a time. Shows already in your
-          library are skipped; broken feeds are listed at the end.</li>
+        <li>Export your subscriptions as OPML from your other podcast app.</li>
+        <li>Keep it anywhere in Files, or drop it into <strong>Files → On My iPhone → PodNook</strong>.</li>
+        <li>Open PodNook → <strong>Settings</strong> → <strong>Import OPML</strong> and pick the file.</li>
+        <li>PodNook imports three at a time, skips shows already in your library, and lists broken feeds at the end.</li>
       </ol>
 
+      <h3>Downloaded episodes</h3>
+      <p>Downloaded episodes appear in a <strong>Downloaded</strong> shelf at the top of the Library — one tap plays them offline.
+        <strong>Manage</strong> opens the Downloads tab. The Downloads tab sorts by most recently downloaded.</p>
+
       <h3>Refresh</h3>
-      <p>Pull down on the library to refresh everything, or tap the refresh button in the header.
-        PodNook also refreshes on launch and when you return to the app after 15 minutes.
-        Feeds use conditional requests, so unchanged shows cost almost no data.</p>
+      <p>Pull down on the library, or tap the refresh button. PodNook also refreshes on launch and when you return after 15 minutes,
+        using conditional requests so unchanged shows cost almost no data.</p>
     </div>
 
     <div class="card">
       <h2>Playback</h2>
       <ul>
-        <li><strong>Background playback</strong> — audio keeps playing when you lock the screen or switch apps.</li>
-        <li><strong>Lock screen &amp; Control Center</strong> — play/pause, skip back 15 s, skip forward 15 s,
-          previous and next episode.</li>
-        <li><strong>Headphones</strong> — unplugging them pauses playback; a phone call pauses and resumes afterwards.</li>
-        <li><strong>Speed</strong> — tap the speed chip in the player, or set it in Settings. 0.8× to 2×.</li>
-        <li><strong>Resume</strong> — progress is saved every 5 seconds. Episodes under 10 seconds of progress start over.</li>
-        <li><strong>Queue</strong> — “Add to Queue” from an episode; playback continues with the next episode automatically.</li>
+        <li><strong>Background playback</strong> — keeps playing when locked or in another app.</li>
+        <li><strong>Lock screen &amp; Control Center</strong> — play/pause, back 15 s, forward 15 s, previous/next episode.</li>
+        <li><strong>Headphones</strong> — unplugging pauses; a phone call resumes afterwards.</li>
+        <li><strong>Speed</strong> — tap the speed chip or change it in Settings (0.8×–2×).</li>
+        <li><strong>Resume</strong> — progress saved every 5 s; under 10 s of progress starts over.</li>
+        <li><strong>Up Next</strong> — add episodes to the queue; the player lists what follows and jumps on tap.</li>
+        <li><strong>Remaining time</strong> — the right side of the scrubber shows <code>-mm:ss</code>.</li>
       </ul>
     </div>
 
     <div class="card">
       <h2>Downloads</h2>
       <ul>
-        <li>Tap the download arrow on an episode. Progress is shown on the row and in <strong>Downloads</strong>.</li>
-        <li>Downloads resume where they stopped, including after losing the network or restarting the app.</li>
+        <li>Tap the arrow on an episode; progress shows in the row and in Downloads.</li>
+        <li>Downloads resume after losing the network or restarting the app.</li>
         <li>Playback prefers the downloaded file, so offline listening needs no network.</li>
-        <li>Cancel an in-flight download from the same row; delete a finished one with the trash button.</li>
-        <li><strong>Settings → Delete All Downloads</strong> clears every audio file; <strong>Clear Artwork Cache</strong>
-          clears images only.</li>
+        <li>Cancel in-flight downloads from the row; delete finished ones with the trash button.</li>
+        <li><strong>Settings → Delete All Downloads</strong> clears audio; <strong>Clear Artwork Cache</strong> clears images.</li>
       </ul>
     </div>
 
@@ -178,62 +145,45 @@
       <table>
         <tr><th>Setting</th><th>What it does</th></tr>
         <tr><td>Playback speed</td><td>Default speed for every episode.</td></tr>
-        <tr><td>Episodes kept per show</td><td>Older episodes beyond this limit are pruned. Queued and downloaded episodes are protected.</td></tr>
+        <tr><td>Episodes kept per show</td><td>Prunes older episodes; queued and downloaded episodes are protected.</td></tr>
         <tr><td>Downloads</td><td>Total size of downloaded audio.</td></tr>
-        <tr><td>Delete All Downloads</td><td>Removes every downloaded file from this device.</td></tr>
+        <tr><td>Delete All Downloads</td><td>Removes every downloaded file.</td></tr>
         <tr><td>Clear Artwork Cache</td><td>Removes cached cover images.</td></tr>
         <tr><td>Import OPML</td><td>Bulk import subscriptions.</td></tr>
       </table>
-      <p class="muted" style="margin-top:12px">Unsubscribe: open a show, tap the trash button in the header.
-        Its episodes, queue entries and downloads are removed.</p>
+      <p class="muted" style="margin-top:12px">Unsubscribe: open a show, tap the trash button in the header.</p>
     </div>
 
     <div class="card">
       <h2>Troubleshooting</h2>
       <table>
         <tr><th>Symptom</th><th>What to try</th></tr>
-        <tr><td>Library shows “Update failed”</td>
-          <td>The show's server did not answer. Pull to refresh later; the badge clears after a successful update.</td></tr>
-        <tr><td>Download fails with “Link expired”</td>
-          <td>The media URL uses a temporary token. Refresh the feed, then retry the download.</td></tr>
-        <tr><td>Download stops at a percentage</td>
-          <td>Tap retry; PodNook resumes from the bytes it already has. If the host cannot resume, it starts over.</td></tr>
-        <tr><td>Episode won't play</td>
-          <td>Check the connection. If the show only offers HTTP media, PodNook allows media loads but some hosts block non-browser clients.</td></tr>
-        <tr><td>OPML import finds no shows</td>
-          <td>Make sure the file ends in <code>.opml</code> or <code>.xml</code> and contains <code>xmlUrl</code> attributes. Empty folders are ignored.</td></tr>
-        <tr><td>Black screen with “In iOS 14+, debug mode Flutter apps can only be launched from Flutter tooling…”</td>
-          <td>That build was a Debug build launched from the home screen. Launch it from Xcode or <code>flutter run</code>, or install a Release build.</td></tr>
-        <tr><td>No lock-screen controls</td>
-          <td>Start an episode once inside the app; the now-playing info is published with the first play.</td></tr>
-        <tr><td>Covers are missing</td>
-          <td>Some CDNs block direct image requests. A placeholder is shown and playback is unaffected.</td></tr>
+        <tr><td>“Update failed” in the library</td><td>The show’s server did not answer; pull to refresh later, the badge clears after a successful update.</td></tr>
+        <tr><td>Download says “Link expired”</td><td>The media URL uses a temporary token; refresh the feed and retry.</td></tr>
+        <tr><td>Download stops part-way</td><td>Tap retry; PodNook resumes from the bytes it has, or restarts if the host cannot resume.</td></tr>
+        <tr><td>Episode will not play</td><td>Check the connection. Some hosts block non-browser clients or only serve HTTP media.</td></tr>
+        <tr><td>OPML import finds nothing</td><td>Use a <code>.opml</code> or <code>.xml</code> file containing <code>xmlUrl</code> attributes.</td></tr>
+        <tr><td>Black screen “In iOS 14+, debug mode Flutter apps…”</td><td>That build is a Debug build launched from the home screen. Launch from Xcode/<code>flutter run</code> or install a Release build.</td></tr>
+        <tr><td>No lock-screen controls</td><td>Start an episode once inside the app; now-playing info is published on first play.</td></tr>
+        <tr><td>Covers missing</td><td>Some CDNs block direct image requests; a placeholder is shown and playback is unaffected.</td></tr>
       </table>
     </div>
 
-    <div class="card faq">
+    <div class="card">
       <h2>FAQ</h2>
-      <h3>Does PodNook collect any data?</h3>
-      <p>No. No account, no tracking, no ads, no analytics SDK. See the
+      <p><strong>Does PodNook collect data?</strong> No — no account, tracking, ads or analytics. See the
         <a href="./index.html">privacy policy</a>.</p>
-      <h3>Does it sync across devices?</h3>
-      <p>Not in 1.0. Everything is local; there is no server and no iCloud sync.</p>
-      <h3>Is there CarPlay, a sleep timer or chapter support?</h3>
-      <p>Not in 1.0. Lock screen and Control Center controls are supported. CarPlay, sleep timer and chapters are
-        planned for later versions.</p>
-      <h3>Can I export my subscriptions?</h3>
-      <p>Not yet. Import works; export is on the roadmap.</p>
-      <h3>How much space do downloads use?</h3>
-      <p>Settings shows the total. A one-hour episode is typically 30–60 MB depending on the publisher's bitrate.</p>
-      <h3>What happens if I delete the app?</h3>
-      <p>Your subscriptions, progress and downloads are removed with it. Nothing is stored elsewhere.</p>
+      <p><strong>Does it sync?</strong> Not in 1.1; everything is local.</p>
+      <p><strong>CarPlay, sleep timer, chapters?</strong> Not in 1.1. Lock screen and Control Center controls are supported.</p>
+      <p><strong>Can I export subscriptions?</strong> Import works; export is planned.</p>
+      <p><strong>How much space do downloads use?</strong> Settings shows the total; an hour is typically 30–60 MB.</p>
+      <p><strong>What happens if I delete the app?</strong> Library, progress and downloads are removed with it.</p>
     </div>
 
     <div class="card">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a></p>
-      <p class="muted">Please include: iOS version, PodNook version (Settings → Version), the feed URL,
-        and the steps that reproduce the problem. Screenshots help.</p>
+      <p class="muted">Include the iOS version, PodNook version (Settings → Version), the feed URL and reproduction steps. Screenshots help.</p>
     </div>
   </div>
 
@@ -241,58 +191,58 @@
   <div data-lang="zh" hidden>
     <div class="card hero">
       <h2>需要帮助？</h2>
-      <p>大多数问题都可以在下面找到答案。如果没有，请邮件
-        <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a>，
-        并附上 iOS 版本、feed 地址，以及出问题前的操作步骤。</p>
+      <p>PodNook 1.1 已支持英语、德语、法语和意大利语界面。多数问题可在下面找到答案；
+        否则请发邮件到 <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a>，
+        并附上 iOS 版本、feed 地址与出错前的操作步骤。</p>
     </div>
 
     <div class="card">
       <h2>快速开始</h2>
-
       <h3>订阅播客</h3>
       <ol class="steps">
         <li>打开 <strong>Library</strong>，点右上角 <strong>+</strong>。</li>
-        <li>粘贴节目的 RSS 地址（例如 <code>https://feeds.npr.org/510289/podcast.xml</code>）。</li>
-        <li>点 <strong>Subscribe</strong>。PodNook 抓取一次 feed 并保存在本地。</li>
+        <li>粘贴节目的 RSS 地址（如 <code>https://feeds.npr.org/510289/podcast.xml</code>）。</li>
+        <li>点 <strong>Subscribe</strong>，PodNook 抓取一次并保存到本地。</li>
       </ol>
-      <p class="muted">普通网站地址不行，必须是 RSS/Atom 的 feed 地址。</p>
+      <p class="muted">普通网站地址不行，必须是 RSS/Atom feed。</p>
 
-      <h3>导入 OPML <span class="tag">AntennaPod · Overcast · Pocket Casts</span></h3>
+      <h3>导入 OPML</h3>
       <ol class="steps">
-        <li>在原来的播客 App 中把订阅导出为 OPML。</li>
-        <li>文件可以放在“文件”App 的任意位置，或放进
-          <strong>文件 → 我的 iPhone → PodNook</strong> 文件夹。</li>
-        <li>打开 PodNook → <strong>Settings</strong> → <strong>Import OPML</strong>，选择文件。</li>
-        <li>PodNook 会显示解析到的节目数量，并以 3 个并发导入。已在库中的会跳过，
-          失败的 feed 会列在结果里。</li>
+        <li>在原播客 App 中导出 OPML。</li>
+        <li>放在“文件”任意位置，或放进 <strong>文件 → 我的 iPhone → PodNook</strong>。</li>
+        <li>PodNook → <strong>Settings</strong> → <strong>Import OPML</strong>，选择文件。</li>
+        <li>以 3 个并发导入，自动跳过已有订阅，失败的 feed 会列在结果里。</li>
       </ol>
+
+      <h3>已下载内容</h3>
+      <p>库顶部有 <strong>Downloaded</strong> 区域，点一下即可离线播放；<strong>Manage</strong> 进入下载页。
+        下载页按最近下载时间排序。</p>
 
       <h3>刷新</h3>
-      <p>在库页面下拉即可刷新全部，或点右上角刷新按钮。App 启动时、以及离开 15 分钟后回到前台也会自动刷新。
-        使用条件请求，未更新的 feed 几乎不消耗流量。</p>
+      <p>库页面下拉或点刷新按钮。启动时、离开 15 分钟后回到前台也会自动刷新，使用条件请求，省流量。</p>
     </div>
 
     <div class="card">
       <h2>播放</h2>
       <ul>
-        <li><strong>后台播放</strong>：锁屏或切换 App 时音频继续。</li>
-        <li><strong>锁屏 / 控制中心</strong>：播放暂停、后退 15 秒、前进 15 秒、上一集、下一集。</li>
-        <li><strong>耳机</strong>：拔掉耳机自动暂停；来电时暂停，结束后恢复。</li>
-        <li><strong>倍速</strong>：点播放页的倍速胶囊，或在设置里改，0.8×–2×。</li>
-        <li><strong>续播</strong>：进度每 5 秒保存一次；不足 10 秒的进度视为从头开始。</li>
-        <li><strong>队列</strong>：单集里点“加入队列”，播完自动接下一集。</li>
+        <li><strong>后台播放</strong>：锁屏或切 App 继续。</li>
+        <li><strong>锁屏 / 控制中心</strong>：播放暂停、后退 15 秒、前进 15 秒、上一集/下一集。</li>
+        <li><strong>耳机</strong>：拔出暂停；来电结束后恢复。</li>
+        <li><strong>倍速</strong>：播放页胶囊或设置里调整（0.8×–2×）。</li>
+        <li><strong>续播</strong>：每 5 秒保存一次；不足 10 秒视为从头。</li>
+        <li><strong>Up Next</strong>：可加入队列，播放器列出后续单集，点一下即跳播。</li>
+        <li><strong>剩余时间</strong>：进度条右侧显示 <code>-mm:ss</code>。</li>
       </ul>
     </div>
 
     <div class="card">
       <h2>下载</h2>
       <ul>
-        <li>点单集右侧的下载箭头，进度会显示在列表和 <strong>Downloads</strong> 页。</li>
-        <li>支持断点续传：断网或重启 App 后会从已下载的位置继续。</li>
-        <li>播放优先使用已下载文件，离线也能听。</li>
-        <li>同一行可以取消下载；已完成的用垃圾桶按钮删除。</li>
-        <li><strong>Settings → Delete All Downloads</strong> 清空全部音频；
-          <strong>Clear Artwork Cache</strong> 只清封面。</li>
+        <li>点单集右侧箭头，进度显示在行内与 Downloads 页。</li>
+        <li>断网或重启 App 后可续传。</li>
+        <li>播放优先使用本地文件，离线也能听。</li>
+        <li>同一行可取消；已完成的用垃圾桶删除。</li>
+        <li><strong>Settings → Delete All Downloads</strong> 清空音频；<strong>Clear Artwork Cache</strong> 清封面缓存。</li>
       </ul>
     </div>
 
@@ -300,101 +250,407 @@
       <h2>库与设置</h2>
       <table>
         <tr><th>设置项</th><th>作用</th></tr>
-        <tr><td>Playback speed</td><td>全局默认播放倍速。</td></tr>
-        <tr><td>Episodes kept per show</td><td>每个节目保留的最新单集数量，超出的旧单集会清理；队列中与已下载的会保留。</td></tr>
-        <tr><td>Downloads</td><td>已下载音频占用的空间。</td></tr>
-        <tr><td>Delete All Downloads</td><td>删除本机全部下载文件。</td></tr>
+        <tr><td>Playback speed</td><td>全局默认倍速。</td></tr>
+        <tr><td>Episodes kept per show</td><td>每个节目保留的最新单集数；队列与已下载会保留。</td></tr>
+        <tr><td>Downloads</td><td>已下载音频总占用。</td></tr>
+        <tr><td>Delete All Downloads</td><td>删除全部下载文件。</td></tr>
         <tr><td>Clear Artwork Cache</td><td>清除封面缓存。</td></tr>
         <tr><td>Import OPML</td><td>批量导入订阅。</td></tr>
       </table>
-      <p class="muted" style="margin-top:12px">取消订阅：进入节目页，点右上角垃圾桶。该节目的单集、队列项与下载会一并删除。</p>
+      <p class="muted" style="margin-top:12px">取消订阅：进入节目页，点右上角垃圾桶。</p>
     </div>
 
     <div class="card">
       <h2>疑难排查</h2>
       <table>
         <tr><th>现象</th><th>可以尝试</th></tr>
-        <tr><td>库中显示 “Update failed”</td>
-          <td>节目服务器没有响应。稍后下拉刷新；成功更新后标记会自动消失。</td></tr>
-        <tr><td>下载失败，提示 “Link expired”</td>
-          <td>音频地址使用了临时令牌。先刷新 feed，再重试下载。</td></tr>
-        <tr><td>下载卡在某个百分比</td>
-          <td>点重试，PodNook 会从已有字节续传；若对方不支持续传则从头下载。</td></tr>
-        <tr><td>单集无法播放</td>
-          <td>先确认网络。若节目只提供 HTTP 音频，PodNook 允许媒体加载，但部分服务器会拒绝非浏览器客户端。</td></tr>
-        <tr><td>OPML 导入找不到节目</td>
-          <td>确认文件后缀是 <code>.opml</code> 或 <code>.xml</code>，且其中包含 <code>xmlUrl</code> 属性；空文件夹会被忽略。</td></tr>
-        <tr><td>黑屏并提示 “In iOS 14+, debug mode Flutter apps can only be launched from Flutter tooling…”</td>
-          <td>那是从桌面启动的 Debug 包。请用 Xcode 或 <code>flutter run</code> 启动，或安装 Release 包。</td></tr>
-        <tr><td>锁屏没有控制按钮</td>
-          <td>先在 App 内播放一次，Now Playing 信息才会发布到系统。</td></tr>
-        <tr><td>封面不显示</td>
-          <td>部分 CDN 会拦截直连图片请求，此时显示占位图，不影响播放。</td></tr>
+        <tr><td>库中显示 “Update failed”</td><td>服务器未响应，稍后下拉刷新；成功更新后标记消失。</td></tr>
+        <tr><td>下载提示 “Link expired”</td><td>音频地址带临时令牌，先刷新 feed 再重试。</td></tr>
+        <tr><td>下载中途停止</td><td>点重试，会从已有字节续传；对方不支持则从头下载。</td></tr>
+        <tr><td>单集无法播放</td><td>确认网络；部分服务器拒绝非浏览器客户端或只提供 HTTP 音频。</td></tr>
+        <tr><td>OPML 导入没有结果</td><td>确认是 <code>.opml</code>/<code>.xml</code>，且包含 <code>xmlUrl</code> 属性。</td></tr>
+        <tr><td>黑屏提示 “In iOS 14+, debug mode Flutter apps…”</td><td>那是桌面启动的 Debug 包；用 Xcode/<code>flutter run</code> 启动，或安装 Release 包。</td></tr>
+        <tr><td>锁屏没有控制按钮</td><td>先在 App 内播放一次，Now Playing 才会发布。</td></tr>
+        <tr><td>封面不显示</td><td>部分 CDN 拦截直连图片，显示占位图，不影响播放。</td></tr>
       </table>
     </div>
 
-    <div class="card faq">
+    <div class="card">
       <h2>常见问题</h2>
-      <h3>PodNook 会收集数据吗？</h3>
-      <p>不会。没有账号、没有追踪、没有广告、没有统计 SDK。详见
-        <a href="./index.html">隐私政策</a>。</p>
-      <h3>支持多设备同步吗？</h3>
-      <p>1.0 不支持。所有数据都在本机，没有服务器，也没有 iCloud 同步。</p>
-      <h3>有 CarPlay、睡眠定时、章节吗？</h3>
-      <p>1.0 没有。已支持锁屏与控制中心控制；CarPlay、睡眠定时与章节在后续版本规划中。</p>
-      <h3>可以导出订阅吗？</h3>
-      <p>暂时只能导入，导出在后续计划中。</p>
-      <h3>下载会占多少空间？</h3>
-      <p>设置页会显示总占用。一小时的单集通常 30–60 MB，取决于发布方的码率。</p>
-      <h3>删除 App 会怎样？</h3>
-      <p>订阅、进度和下载文件都会随之删除，不保留任何副本。</p>
+      <p><strong>会收集数据吗？</strong>不会，详见<a href="./index.html">隐私政策</a>。</p>
+      <p><strong>支持同步吗？</strong>1.1 不支持，数据都在本机。</p>
+      <p><strong>有 CarPlay / 睡眠定时 / 章节吗？</strong>1.1 没有；已支持锁屏与控制中心控制。</p>
+      <p><strong>能导出订阅吗？</strong>目前只支持导入，导出在计划中。</p>
+      <p><strong>下载占多少空间？</strong>设置页显示总量，一小时通常 30–60 MB。</p>
+      <p><strong>删除 App 会怎样？</strong>订阅、进度与下载一并删除。</p>
     </div>
 
     <div class="card">
       <h2>联系</h2>
       <p>邮箱：<a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a></p>
-      <p class="muted">请附上：iOS 版本、PodNook 版本（Settings → Version）、feed 地址，
-        以及能复现问题的步骤；有截图更好。</p>
+      <p class="muted">请附上 iOS 版本、PodNook 版本（Settings → Version）、feed 地址与复现步骤；有截图更好。</p>
+    </div>
+  </div>
+
+  <!-- ============================ DEUTSCH ============================ -->
+  <div data-lang="de" hidden>
+    <div class="card hero">
+      <h2>Brauchst du Hilfe?</h2>
+      <p>PodNook 1.1 ist auf Deutsch, Englisch, Französisch und Italienisch verfügbar. Die meisten Fragen werden unten beantwortet.
+        Sonst schreib an <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a> mit iOS-Version, Feed-URL und den Schritten davor.</p>
+    </div>
+
+    <div class="card">
+      <h2>Erste Schritte</h2>
+      <h3>Podcast abonnieren</h3>
+      <ol class="steps">
+        <li><strong>Mediathek</strong> öffnen und <strong>+</strong> tippen.</li>
+        <li>RSS-Feed-URL einfügen (z. B. <code>https://feeds.npr.org/510289/podcast.xml</code>).</li>
+        <li><strong>Abonnieren</strong> tippen; PodNook lädt den Feed einmal und speichert ihn lokal.</li>
+      </ol>
+      <p class="muted">Eine Website-Adresse funktioniert nicht – es muss ein RSS-/Atom-Feed sein.</p>
+
+      <h3>OPML importieren</h3>
+      <ol class="steps">
+        <li>Abos in der anderen App als OPML exportieren.</li>
+        <li>Datei in „Dateien“ ablegen oder in <strong>Dateien → Auf meinem iPhone → PodNook</strong>.</li>
+        <li>PodNook → <strong>Einstellungen</strong> → <strong>OPML importieren</strong>, Datei wählen.</li>
+        <li>Import mit 3 parallelen Abrufen; vorhandene Abos werden übersprungen, defekte Feeds am Ende gelistet.</li>
+      </ol>
+
+      <h3>Geladene Folgen</h3>
+      <p>Heruntergeladene Folgen erscheinen oben in der Mediathek unter <strong>Geladen</strong> – ein Tipp startet die Offline-Wiedergabe.
+        <strong>Verwalten</strong> öffnet die Download-Ansicht, die nach zuletzt geladen sortiert ist.</p>
+
+      <h3>Aktualisieren</h3>
+      <p>In der Mediathek nach unten ziehen oder den Aktualisieren-Button tippen. Automatisch beim Start und nach 15 Minuten,
+        mit bedingten Anfragen (kaum Datenverbrauch bei unveränderten Sendungen).</p>
+    </div>
+
+    <div class="card">
+      <h2>Wiedergabe</h2>
+      <ul>
+        <li><strong>Hintergrund</strong>: läuft bei gesperrtem Bildschirm oder in anderen Apps weiter.</li>
+        <li><strong>Sperrbildschirm &amp; Kontrollzentrum</strong>: Play/Pause, 15 s zurück/vor, vorherige/nächste Folge.</li>
+        <li><strong>Kopfhörer</strong>: Abziehen pausiert; nach einem Anruf geht es weiter.</li>
+        <li><strong>Tempo</strong>: Chip im Player oder Einstellungen (0,8×–2×).</li>
+        <li><strong>Fortsetzen</strong>: alle 5 s gesichert; unter 10 s startet von vorn.</li>
+        <li><strong>Als Nächstes</strong>: Folgen zur Warteschlange hinzufügen; Tippen springt direkt.</li>
+        <li><strong>Restzeit</strong>: rechts neben dem Regler als <code>-mm:ss</code>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Downloads</h2>
+      <ul>
+        <li>Pfeil an der Folge tippen; Fortschritt erscheint in der Zeile und in Downloads.</li>
+        <li>Setzt nach Netzverlust oder App-Neustart fort.</li>
+        <li>Wiedergabe nutzt die lokale Datei – offline ohne Netz.</li>
+        <li>Laufende Downloads in der Zeile abbrechen, fertige mit dem Papierkorb löschen.</li>
+        <li><strong>Einstellungen → Alle Downloads löschen</strong>; <strong>Cover-Cache leeren</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Mediathek &amp; Einstellungen</h2>
+      <table>
+        <tr><th>Einstellung</th><th>Funktion</th></tr>
+        <tr><td>Wiedergabegeschwindigkeit</td><td>Standardtempo für alle Folgen.</td></tr>
+        <tr><td>Behaltene Folgen pro Sendung</td><td>Ältere Folgen werden entfernt; Warteschlange und Downloads bleiben.</td></tr>
+        <tr><td>Downloads</td><td>Gesamtgröße der Audiodateien.</td></tr>
+        <tr><td>Alle Downloads löschen</td><td>Entfernt alle geladenen Dateien.</td></tr>
+        <tr><td>Cover-Cache leeren</td><td>Entfernt zwischengespeicherte Cover.</td></tr>
+        <tr><td>OPML importieren</td><td>Abos in großen Mengen übernehmen.</td></tr>
+      </table>
+      <p class="muted" style="margin-top:12px">Abo beenden: Sendung öffnen, Papierkorb im Kopfbereich tippen.</p>
+    </div>
+
+    <div class="card">
+      <h2>Fehlerbehebung</h2>
+      <table>
+        <tr><th>Symptom</th><th>Versuch</th></tr>
+        <tr><td>„Aktualisierung fehlgeschlagen“</td><td>Server antwortet nicht; später aktualisieren, Markierung verschwindet danach.</td></tr>
+        <tr><td>Download: „Link expired“</td><td>Medien-URL mit temporärem Token; Feed aktualisieren und erneut laden.</td></tr>
+        <tr><td>Download bricht ab</td><td>Erneut versuchen; setzt fort oder startet neu, wenn der Host es nicht unterstützt.</td></tr>
+        <tr><td>Folge spielt nicht</td><td>Verbindung prüfen; manche Hosts blocken Nicht-Browser oder liefern nur HTTP.</td></tr>
+        <tr><td>OPML importiert nichts</td><td><code>.opml</code>/<code>.xml</code> mit <code>xmlUrl</code>-Attributen verwenden.</td></tr>
+        <tr><td>Schwarzer Bildschirm „In iOS 14+, debug mode Flutter apps…“</td><td>Debug-Build vom Home-Bildschirm gestartet; aus Xcode/<code>flutter run</code> starten oder Release installieren.</td></tr>
+        <tr><td>Keine Sperrbildschirm-Steuerung</td><td>Erst einmal in der App abspielen; dann wird „Now Playing“ veröffentlicht.</td></tr>
+        <tr><td>Cover fehlen</td><td>Manche CDNs blocken Bildanfragen; Platzhalter erscheint, Wiedergabe unberührt.</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>FAQ</h2>
+      <p><strong>Sammelt PodNook Daten?</strong> Nein – kein Konto, kein Tracking, keine Werbung. Siehe <a href="./index.html">Datenschutz</a>.</p>
+      <p><strong>Gibt es Synchronisierung?</strong> In 1.1 nicht, alles bleibt lokal.</p>
+      <p><strong>CarPlay, Sleep-Timer, Kapitel?</strong> Nicht in 1.1. Sperrbildschirm und Kontrollzentrum werden unterstützt.</p>
+      <p><strong>Abos exportieren?</strong> Import ja, Export geplant.</p>
+      <p><strong>Speicherbedarf?</strong> Einstellungen zeigt die Summe; eine Stunde sind meist 30–60 MB.</p>
+      <p><strong>App löschen?</strong> Mediathek, Fortschritt und Downloads werden entfernt.</p>
+    </div>
+
+    <div class="card">
+      <h2>Kontakt</h2>
+      <p>E-Mail: <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a></p>
+      <p class="muted">Bitte iOS-Version, PodNook-Version (Einstellungen → Version), Feed-URL und Schritte mitschicken. Screenshots helfen.</p>
+    </div>
+  </div>
+
+  <!-- ============================ FRANÇAIS ============================ -->
+  <div data-lang="fr" hidden>
+    <div class="card hero">
+      <h2>Besoin d’aide ?</h2>
+      <p>PodNook 1.1 est disponible en français, anglais, allemand et italien. La plupart des réponses sont ci-dessous.
+        Sinon écrivez à <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a> avec la version iOS, l’URL du flux et les étapes précédentes.</p>
+    </div>
+
+    <div class="card">
+      <h2>Premiers pas</h2>
+      <h3>S’abonner à un podcast</h3>
+      <ol class="steps">
+        <li>Ouvrez <strong>Bibliothèque</strong> et touchez <strong>+</strong>.</li>
+        <li>Collez l’URL du flux RSS (par exemple <code>https://feeds.npr.org/510289/podcast.xml</code>).</li>
+        <li>Touchez <strong>S’abonner</strong> ; PodNook récupère le flux une fois et le stocke localement.</li>
+      </ol>
+      <p class="muted">Une adresse de site web ne fonctionne pas : il faut un flux RSS ou Atom.</p>
+
+      <h3>Importer un OPML</h3>
+      <ol class="steps">
+        <li>Exportez vos abonnements en OPML depuis l’autre app.</li>
+        <li>Placez le fichier dans Fichiers, ou dans <strong>Fichiers → Sur mon iPhone → PodNook</strong>.</li>
+        <li>PodNook → <strong>Réglages</strong> → <strong>Importer un OPML</strong>, choisissez le fichier.</li>
+        <li>Import par trois à la fois, les abonnements existants sont ignorés, les flux cassés listés à la fin.</li>
+      </ol>
+
+      <h3>Épisodes téléchargés</h3>
+      <p>Les épisodes téléchargés apparaissent en haut de la bibliothèque dans <strong>Téléchargés</strong> — un geste pour écouter hors ligne.
+        <strong>Gérer</strong> ouvre l’onglet Téléchargements, trié par téléchargement le plus récent.</p>
+
+      <h3>Actualiser</h3>
+      <p>Tirez la bibliothèque vers le bas ou touchez le bouton d’actualisation. Actualisation aussi au lancement et après 15 minutes,
+        avec des requêtes conditionnelles (très peu de données si rien n’a changé).</p>
+    </div>
+
+    <div class="card">
+      <h2>Lecture</h2>
+      <ul>
+        <li><strong>Arrière-plan</strong> : continue écran verrouillé ou dans une autre app.</li>
+        <li><strong>Écran verrouillé et Centre de contrôle</strong> : lecture/pause, −15 s, +15 s, précédent/suivant.</li>
+        <li><strong>Casque</strong> : le débrancher met en pause ; un appel reprend ensuite.</li>
+        <li><strong>Vitesse</strong> : pastille du lecteur ou Réglages (0,8×–2×).</li>
+        <li><strong>Reprise</strong> : progression enregistrée toutes les 5 s ; moins de 10 s repart de zéro.</li>
+        <li><strong>À suivre</strong> : ajoutez à la file ; le lecteur liste la suite et y saute au toucher.</li>
+        <li><strong>Temps restant</strong> : affiché à droite sous la forme <code>-mm:ss</code>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Téléchargements</h2>
+      <ul>
+        <li>Touchez la flèche d’un épisode ; la progression apparaît dans la ligne et dans Téléchargements.</li>
+        <li>Reprise après coupure réseau ou redémarrage de l’app.</li>
+        <li>La lecture privilégie le fichier local : écoute hors ligne sans réseau.</li>
+        <li>Annulez un téléchargement en cours depuis la ligne ; supprimez un terminé avec la corbeille.</li>
+        <li><strong>Réglages → Supprimer tous les téléchargements</strong> ; <strong>Vider le cache des pochettes</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Bibliothèque et réglages</h2>
+      <table>
+        <tr><th>Réglage</th><th>Effet</th></tr>
+        <tr><td>Vitesse de lecture</td><td>Vitesse par défaut de tous les épisodes.</td></tr>
+        <tr><td>Épisodes conservés par émission</td><td>Supprime les plus anciens ; file et téléchargements protégés.</td></tr>
+        <tr><td>Téléchargements</td><td>Taille totale des audios téléchargés.</td></tr>
+        <tr><td>Supprimer tous les téléchargements</td><td>Supprime tous les fichiers téléchargés.</td></tr>
+        <tr><td>Vider le cache des pochettes</td><td>Supprime les pochettes en cache.</td></tr>
+        <tr><td>Importer un OPML</td><td>Import d’abonnements en masse.</td></tr>
+      </table>
+      <p class="muted" style="margin-top:12px">Se désabonner : ouvrez une émission, touchez la corbeille en haut.</p>
+    </div>
+
+    <div class="card">
+      <h2>Dépannage</h2>
+      <table>
+        <tr><th>Symptôme</th><th>À essayer</th></tr>
+        <tr><td>« Échec de la mise à jour »</td><td>Le serveur ne répond pas ; actualisez plus tard, le badge disparaît ensuite.</td></tr>
+        <tr><td>Téléchargement « Link expired »</td><td>URL avec jeton temporaire ; actualisez le flux puis réessayez.</td></tr>
+        <tr><td>Téléchargement s’arrête</td><td>Réessayez ; la reprise continue, ou repart de zéro si l’hôte refuse.</td></tr>
+        <tr><td>Épisode ne lit pas</td><td>Vérifiez la connexion ; certains hôtes bloquent les clients non navigateur.</td></tr>
+        <tr><td>Import OPML vide</td><td>Utilisez un fichier <code>.opml</code>/<code>.xml</code> avec des attributs <code>xmlUrl</code>.</td></tr>
+        <tr><td>Écran noir « In iOS 14+, debug mode Flutter apps… »</td><td>Build Debug lancé depuis l’écran d’accueil ; lancez via Xcode/<code>flutter run</code> ou installez une version Release.</td></tr>
+        <tr><td>Pas de commandes sur l’écran verrouillé</td><td>Lancez d’abord une lecture dans l’app pour publier « Now Playing ».</td></tr>
+        <tr><td>Pochettes absentes</td><td>Certains CDN bloquent les images ; un visuel de remplacement s’affiche, la lecture n’est pas affectée.</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>FAQ</h2>
+      <p><strong>PodNook collecte-t-il des données ?</strong> Non — pas de compte, de suivi, de pub ni d’analyse. Voir <a href="./index.html">Confidentialité</a>.</p>
+      <p><strong>Une synchronisation ?</strong> Pas en 1.1, tout est local.</p>
+      <p><strong>CarPlay, minuteur, chapitres ?</strong> Pas en 1.1 ; écran verrouillé et Centre de contrôle sont pris en charge.</p>
+      <p><strong>Exporter les abonnements ?</strong> L’import fonctionne, l’export est prévu.</p>
+      <p><strong>Espace utilisé ?</strong> Affiché dans les réglages ; environ 30–60 Mo par heure.</p>
+      <p><strong>Supprimer l’app ?</strong> Bibliothèque, progression et téléchargements sont supprimés.</p>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>E-mail : <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a></p>
+      <p class="muted">Indiquez la version iOS, la version de PodNook (Réglages → Version), l’URL du flux et les étapes. Les captures aident.</p>
+    </div>
+  </div>
+
+  <!-- ============================ ITALIANO ============================ -->
+  <div data-lang="it" hidden>
+    <div class="card hero">
+      <h2>Serve aiuto?</h2>
+      <p>PodNook 1.1 è disponibile in italiano, inglese, tedesco e francese. La maggior parte delle risposte è qui sotto.
+        Altrimenti scrivi a <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a> con versione iOS, URL del feed e passaggi precedenti.</p>
+    </div>
+
+    <div class="card">
+      <h2>Primi passi</h2>
+      <h3>Iscriversi a un podcast</h3>
+      <ol class="steps">
+        <li>Apri <strong>Libreria</strong> e tocca <strong>+</strong>.</li>
+        <li>Incolla l’URL del feed RSS (es. <code>https://feeds.npr.org/510289/podcast.xml</code>).</li>
+        <li>Tocca <strong>Iscriviti</strong>; PodNook scarica il feed una volta e lo salva in locale.</li>
+      </ol>
+      <p class="muted">Un indirizzo di sito web non funziona: serve un feed RSS o Atom.</p>
+
+      <h3>Importare un OPML</h3>
+      <ol class="steps">
+        <li>Esporta le iscrizioni in OPML dall’altra app.</li>
+        <li>Metti il file in File, oppure in <strong>File → Sul mio iPhone → PodNook</strong>.</li>
+        <li>PodNook → <strong>Impostazioni</strong> → <strong>Importa OPML</strong>, scegli il file.</li>
+        <li>Importazione a tre alla volta, salta le iscrizioni esistenti, elenca i feed non riusciti.</li>
+      </ol>
+
+      <h3>Episodi scaricati</h3>
+      <p>Gli episodi scaricati compaiono in cima alla Libreria nella sezione <strong>Scaricati</strong> — un tocco per ascoltare offline.
+        <strong>Gestisci</strong> apre Download, ordinati per download più recente.</p>
+
+      <h3>Aggiornare</h3>
+      <p>Trascina la libreria verso il basso o tocca il pulsante di aggiornamento. Aggiorna anche all’avvio e dopo 15 minuti,
+        con richieste condizionali (pochi dati se nulla è cambiato).</p>
+    </div>
+
+    <div class="card">
+      <h2>Riproduzione</h2>
+      <ul>
+        <li><strong>Background</strong>: continua a schermo bloccato o in altre app.</li>
+        <li><strong>Schermo bloccato e Centro di Controllo</strong>: play/pausa, −15 s, +15 s, precedente/successivo.</li>
+        <li><strong>Cuffie</strong>: scollegandole va in pausa; dopo una chiamata riprende.</li>
+        <li><strong>Velocità</strong>: pastiglia nel player o Impostazioni (0,8×–2×).</li>
+        <li><strong>Ripresa</strong>: progresso salvato ogni 5 s; sotto 10 s riparte da zero.</li>
+        <li><strong>In coda</strong>: aggiungi episodi; il player mostra i successivi e salta al tocco.</li>
+        <li><strong>Tempo rimanente</strong>: a destra sotto il cursore come <code>-mm:ss</code>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Download</h2>
+      <ul>
+        <li>Tocca la freccia sull’episodio; il progresso appare nella riga e in Download.</li>
+        <li>Riprende dopo perdita di rete o riavvio dell’app.</li>
+        <li>La riproduzione usa il file locale: offline senza rete.</li>
+        <li>Annulla i download in corso dalla riga; elimina i completati col cestino.</li>
+        <li><strong>Impostazioni → Elimina tutti i download</strong>; <strong>Svuota cache copertine</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Libreria e impostazioni</h2>
+      <table>
+        <tr><th>Impostazione</th><th>Effetto</th></tr>
+        <tr><td>Velocità di riproduzione</td><td>Velocità predefinita per tutti gli episodi.</td></tr>
+        <tr><td>Episodi conservati per programma</td><td>Rimuove i più vecchi; coda e download protetti.</td></tr>
+        <tr><td>Download</td><td>Dimensione totale degli audio scaricati.</td></tr>
+        <tr><td>Elimina tutti i download</td><td>Rimuove tutti i file scaricati.</td></tr>
+        <tr><td>Svuota cache copertine</td><td>Rimuove le copertine in cache.</td></tr>
+        <tr><td>Importa OPML</td><td>Importazione massiva delle iscrizioni.</td></tr>
+      </table>
+      <p class="muted" style="margin-top:12px">Annulla iscrizione: apri un programma, tocca il cestino in alto.</p>
+    </div>
+
+    <div class="card">
+      <h2>Risoluzione problemi</h2>
+      <table>
+        <tr><th>Sintomo</th><th>Cosa provare</th></tr>
+        <tr><td>“Aggiornamento non riuscito”</td><td>Il server non risponde; aggiorna più tardi, il badge sparisce dopo un aggiornamento riuscito.</td></tr>
+        <tr><td>Download “Link expired”</td><td>URL con token temporaneo; aggiorna il feed e riprova.</td></tr>
+        <tr><td>Download si interrompe</td><td>Riprova; riprende dai byte già scaricati o ricomincia se l’host non supporta la ripresa.</td></tr>
+        <tr><td>L’episodio non parte</td><td>Controlla la connessione; alcuni host bloccano client non browser o servono solo HTTP.</td></tr>
+        <tr><td>Import OPML vuoto</td><td>Usa un file <code>.opml</code>/<code>.xml</code> con attributi <code>xmlUrl</code>.</td></tr>
+        <tr><td>Schermo nero “In iOS 14+, debug mode Flutter apps…”</td><td>Build Debug avviata dalla home; avvia da Xcode/<code>flutter run</code> o installa una Release.</td></tr>
+        <tr><td>Nessun controllo a schermo bloccato</td><td>Avvia una volta la riproduzione nell’app per pubblicare “Now Playing”.</td></tr>
+        <tr><td>Copertine mancanti</td><td>Alcuni CDN bloccano le immagini; appare un segnaposto, la riproduzione non cambia.</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>FAQ</h2>
+      <p><strong>PodNook raccoglie dati?</strong> No — nessun account, tracciamento, pubblicità o analisi. Vedi <a href="./index.html">Privacy</a>.</p>
+      <p><strong>Sincronizzazione?</strong> Non in 1.1, tutto è locale.</p>
+      <p><strong>CarPlay, timer, capitoli?</strong> Non in 1.1; schermo bloccato e Centro di Controllo sono supportati.</p>
+      <p><strong>Esportare le iscrizioni?</strong> L’import funziona, l’export è previsto.</p>
+      <p><strong>Spazio occupato?</strong> Lo mostra Impostazioni; un’ora è di solito 30–60 MB.</p>
+      <p><strong>Eliminando l’app?</strong> Libreria, progressi e download vengono rimossi.</p>
+    </div>
+
+    <div class="card">
+      <h2>Contatti</h2>
+      <p>Email: <a href="mailto:vegaodm@outlook.com">vegaodm@outlook.com</a></p>
+      <p class="muted">Includi versione iOS, versione PodNook (Impostazioni → Versione), URL del feed e passaggi. Le schermate aiutano.</p>
     </div>
   </div>
 
   <footer>
-    <a href="./index.html">Privacy Policy</a> · <a href="./support.html">Support</a>
-    <div style="margin-top:6px">© 2026 PodNook</div>
+    <a href="./index.html">Privacy</a> · <a href="./support.html">Support</a>
+    <div style="margin-top:6px">© 2026 PodNook · v1.1</div>
   </footer>
 </div>
 
 <script>
   (function () {
-    var buttons = { en: document.getElementById('btn-en'), zh: document.getElementById('btn-zh') };
+    var langs = ['en', 'zh', 'de', 'fr', 'it'];
+    var buttons = {};
+    langs.forEach(function (l) { buttons[l] = document.getElementById('btn-' + l); });
     var sections = document.querySelectorAll('[data-lang]');
     var title = document.getElementById('pageTitle');
     var updated = document.getElementById('pageUpdated');
     var strings = {
-      en: { title: 'Support', updated: 'Version 1.0.0 · Last updated: November 22, 2026' },
-      zh: { title: '支持', updated: '版本 1.0.0 · 最后更新：2026 年 11 月 22 日' }
+      en: { title: 'Support', updated: 'Version 1.1 · Last updated: November 23, 2026' },
+      zh: { title: '支持', updated: '版本 1.1 · 最后更新：2026 年 11 月 23 日' },
+      de: { title: 'Support', updated: 'Version 1.1 · Zuletzt aktualisiert: 23. November 2026' },
+      fr: { title: 'Assistance', updated: 'Version 1.1 · Dernière mise à jour : 23 novembre 2026' },
+      it: { title: 'Assistenza', updated: 'Versione 1.1 · Ultimo aggiornamento: 23 novembre 2026' }
     };
 
     function apply(lang) {
-      sections.forEach(function (section) {
-        section.hidden = section.getAttribute('data-lang') !== lang;
-      });
-      buttons.en.setAttribute('aria-pressed', String(lang === 'en'));
-      buttons.zh.setAttribute('aria-pressed', String(lang === 'zh'));
+      sections.forEach(function (s) { s.hidden = s.getAttribute('data-lang') !== lang; });
+      langs.forEach(function (l) { buttons[l].setAttribute('aria-pressed', String(l === lang)); });
       title.textContent = strings[lang].title;
       updated.textContent = strings[lang].updated;
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'en';
+      document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
       document.title = strings[lang].title + ' · PodNook';
       try { localStorage.setItem('podnook-lang', lang); } catch (e) {}
     }
 
-    buttons.en.addEventListener('click', function () { apply('en'); });
-    buttons.zh.addEventListener('click', function () { apply('zh'); });
+    langs.forEach(function (l) {
+      buttons[l].addEventListener('click', function () { apply(l); });
+    });
 
     var stored = null;
     try { stored = localStorage.getItem('podnook-lang'); } catch (e) {}
-    var initial = stored || ((navigator.language || 'en').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
-    apply(initial);
+    var nav = (navigator.language || 'en').toLowerCase();
+    var guess = nav.indexOf('zh') === 0 ? 'zh'
+      : nav.indexOf('de') === 0 ? 'de'
+      : nav.indexOf('fr') === 0 ? 'fr'
+      : nav.indexOf('it') === 0 ? 'it' : 'en';
+    apply(stored && strings[stored] ? stored : guess);
   })();
 </script>
 </body>
