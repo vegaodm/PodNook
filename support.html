@@ -69,7 +69,7 @@
   <header>
     <div class="logo">PodNook</div>
     <h1 id="pageTitle">Support</h1>
-    <div class="updated" id="pageUpdated">Version 1.1 · Last updated: November 23, 2026</div>
+    <div class="updated" id="pageUpdated">Version 1.1.1 · Last updated: November 24, 2026</div>
   </header>
 
   <div class="langbar" role="group" aria-label="Language">
@@ -165,7 +165,8 @@
         <tr><td>OPML import finds nothing</td><td>Use a <code>.opml</code> or <code>.xml</code> file containing <code>xmlUrl</code> attributes.</td></tr>
         <tr><td>Black screen “In iOS 14+, debug mode Flutter apps…”</td><td>That build is a Debug build launched from the home screen. Launch from Xcode/<code>flutter run</code> or install a Release build.</td></tr>
         <tr><td>No lock-screen controls</td><td>Start an episode once inside the app; now-playing info is published on first play.</td></tr>
-        <tr><td>Covers missing</td><td>Some CDNs block direct image requests; a placeholder is shown and playback is unaffected.</td></tr>
+        <tr><td>Covers missing</td><td>Some publisher CDNs (for example NPR) refuse direct image requests with 403. A placeholder is shown, playback and downloads are unaffected, and the cover appears once it can be fetched — then it is cached for offline use.</td></tr>
+        <tr><td>Covers after going offline</td><td>Covers you have seen, and covers of downloaded episodes, are stored on disk and keep working without a connection.</td></tr>
       </table>
     </div>
 
@@ -271,7 +272,8 @@
         <tr><td>OPML 导入没有结果</td><td>确认是 <code>.opml</code>/<code>.xml</code>，且包含 <code>xmlUrl</code> 属性。</td></tr>
         <tr><td>黑屏提示 “In iOS 14+, debug mode Flutter apps…”</td><td>那是桌面启动的 Debug 包；用 Xcode/<code>flutter run</code> 启动，或安装 Release 包。</td></tr>
         <tr><td>锁屏没有控制按钮</td><td>先在 App 内播放一次，Now Playing 才会发布。</td></tr>
-        <tr><td>封面不显示</td><td>部分 CDN 拦截直连图片，显示占位图，不影响播放。</td></tr>
+        <tr><td>封面不显示</td><td>部分发布方 CDN（例如 NPR）会对直连图片返回 403，此时显示占位图，不影响播放与下载；一旦能取到就会显示并缓存下来供离线使用。</td></tr>
+        <tr><td>断网后封面</td><td>看过的封面与已下载单集的封面会存在本地，断网后仍能显示。</td></tr>
       </table>
     </div>
 
@@ -376,7 +378,8 @@
         <tr><td>OPML importiert nichts</td><td><code>.opml</code>/<code>.xml</code> mit <code>xmlUrl</code>-Attributen verwenden.</td></tr>
         <tr><td>Schwarzer Bildschirm „In iOS 14+, debug mode Flutter apps…“</td><td>Debug-Build vom Home-Bildschirm gestartet; aus Xcode/<code>flutter run</code> starten oder Release installieren.</td></tr>
         <tr><td>Keine Sperrbildschirm-Steuerung</td><td>Erst einmal in der App abspielen; dann wird „Now Playing“ veröffentlicht.</td></tr>
-        <tr><td>Cover fehlen</td><td>Manche CDNs blocken Bildanfragen; Platzhalter erscheint, Wiedergabe unberührt.</td></tr>
+        <tr><td>Cover fehlen</td><td>Manche CDNs (z. B. NPR) lehnen direkte Bildanfragen mit 403 ab. Es erscheint ein Platzhalter, Wiedergabe und Downloads sind nicht betroffen; sobald das Bild ladbar ist, wird es angezeigt und offline gespeichert.</td></tr>
+        <tr><td>Cover offline</td><td>Bereits gesehene Cover und Cover geladener Folgen liegen auf dem Gerät und funktionieren ohne Verbindung.</td></tr>
       </table>
     </div>
 
@@ -481,7 +484,8 @@
         <tr><td>Import OPML vide</td><td>Utilisez un fichier <code>.opml</code>/<code>.xml</code> avec des attributs <code>xmlUrl</code>.</td></tr>
         <tr><td>Écran noir « In iOS 14+, debug mode Flutter apps… »</td><td>Build Debug lancé depuis l’écran d’accueil ; lancez via Xcode/<code>flutter run</code> ou installez une version Release.</td></tr>
         <tr><td>Pas de commandes sur l’écran verrouillé</td><td>Lancez d’abord une lecture dans l’app pour publier « Now Playing ».</td></tr>
-        <tr><td>Pochettes absentes</td><td>Certains CDN bloquent les images ; un visuel de remplacement s’affiche, la lecture n’est pas affectée.</td></tr>
+        <tr><td>Pochettes absentes</td><td>Certains CDN d’éditeurs (NPR par exemple) refusent les images directes avec un code 403. Un visuel de remplacement s’affiche ; la lecture et les téléchargements ne sont pas affectés, et la pochette apparaît dès qu’elle est accessible, puis reste en cache hors ligne.</td></tr>
+        <tr><td>Pochettes hors ligne</td><td>Les pochettes déjà vues et celles des épisodes téléchargés sont stockées sur l’appareil et restent visibles sans connexion.</td></tr>
       </table>
     </div>
 
@@ -586,7 +590,8 @@
         <tr><td>Import OPML vuoto</td><td>Usa un file <code>.opml</code>/<code>.xml</code> con attributi <code>xmlUrl</code>.</td></tr>
         <tr><td>Schermo nero “In iOS 14+, debug mode Flutter apps…”</td><td>Build Debug avviata dalla home; avvia da Xcode/<code>flutter run</code> o installa una Release.</td></tr>
         <tr><td>Nessun controllo a schermo bloccato</td><td>Avvia una volta la riproduzione nell’app per pubblicare “Now Playing”.</td></tr>
-        <tr><td>Copertine mancanti</td><td>Alcuni CDN bloccano le immagini; appare un segnaposto, la riproduzione non cambia.</td></tr>
+        <tr><td>Copertine mancanti</td><td>Alcuni CDN degli editori (per esempio NPR) rifiutano le richieste dirette con 403. Appare un segnaposto, riproduzione e download non sono coinvolti; appena l’immagine è raggiungibile viene mostrata e salvata per l’offline.</td></tr>
+        <tr><td>Copertine offline</td><td>Le copertine già viste e quelle degli episodi scaricati restano sul dispositivo e funzionano senza connessione.</td></tr>
       </table>
     </div>
 
@@ -609,7 +614,7 @@
 
   <footer>
     <a href="./index.html">Privacy</a> · <a href="./support.html">Support</a>
-    <div style="margin-top:6px">© 2026 PodNook · v1.1</div>
+    <div style="margin-top:6px">© 2026 PodNook · v1.1.1</div>
   </footer>
 </div>
 
@@ -622,11 +627,11 @@
     var title = document.getElementById('pageTitle');
     var updated = document.getElementById('pageUpdated');
     var strings = {
-      en: { title: 'Support', updated: 'Version 1.1 · Last updated: November 23, 2026' },
-      zh: { title: '支持', updated: '版本 1.1 · 最后更新：2026 年 11 月 23 日' },
-      de: { title: 'Support', updated: 'Version 1.1 · Zuletzt aktualisiert: 23. November 2026' },
-      fr: { title: 'Assistance', updated: 'Version 1.1 · Dernière mise à jour : 23 novembre 2026' },
-      it: { title: 'Assistenza', updated: 'Versione 1.1 · Ultimo aggiornamento: 23 novembre 2026' }
+      en: { title: 'Support', updated: 'Version 1.1.1 · Last updated: November 24, 2026' },
+      zh: { title: '支持', updated: '版本 1.1.1 · 最后更新：2026 年 11 月 24 日' },
+      de: { title: 'Support', updated: 'Version 1.1.1 · Zuletzt aktualisiert: 24. November 2026' },
+      fr: { title: 'Assistance', updated: 'Version 1.1.1 · Dernière mise à jour : 24 novembre 2026' },
+      it: { title: 'Assistenza', updated: 'Versione 1.1.1 · Ultimo aggiornamento: 24 novembre 2026' }
     };
 
     function apply(lang) {
