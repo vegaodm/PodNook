@@ -69,7 +69,7 @@
   <header>
     <div class="logo">PodNook</div>
     <h1 id="pageTitle">Support</h1>
-    <div class="updated" id="pageUpdated">Version 1.2.0 · Last updated: November 26, 2026</div>
+    <div class="updated" id="pageUpdated">Version 1.2.1 · Last updated: November 26, 2026</div>
   </header>
 
   <div class="langbar" role="group" aria-label="Language">
@@ -143,7 +143,7 @@
         <li>Tap the arrow on an episode; progress shows in the row and in Downloads.</li>
         <li>Downloads resume after losing the network or restarting the app.</li>
         <li>Playback prefers the downloaded file, so offline listening needs no network.</li>
-        <li>Cancel in-flight downloads from the row; delete finished ones with the trash button.</li>
+        <li>Cancel in-flight downloads from the row; delete finished ones with the trash button. Deleting a download also removes it from Up Next, so playback never continues into audio you removed.</li>
         <li><strong>Settings → Delete All Downloads</strong> clears audio; <strong>Clear Artwork Cache</strong> clears images.</li>
       </ul>
     </div>
@@ -267,7 +267,7 @@
     <div class="card">
       <h2>下载</h2>
       <ul>
-        <li>点单集右侧箭头，进度显示在行内与 Downloads 页。</li>
+        <li>点单集右侧箭头，进度显示在行内与 Downloads 页；删除下载后该条目也会从 Up Next 移除，不会继续播放已删除的音频。</li>
         <li>断网或重启 App 后可续传。</li>
         <li>播放优先使用本地文件，离线也能听。</li>
         <li>同一行可取消；已完成的用垃圾桶删除。</li>
@@ -393,7 +393,7 @@
     <div class="card">
       <h2>Downloads</h2>
       <ul>
-        <li>Pfeil an der Folge tippen; Fortschritt erscheint in der Zeile und in Downloads.</li>
+        <li>Pfeil an der Folge tippen; Fortschritt erscheint in der Zeile und in Downloads. Ein gelöschter Download verschwindet auch aus „Als Nächstes“ – es wird nichts Gelöschtes weitergespielt.</li>
         <li>Setzt nach Netzverlust oder App-Neustart fort.</li>
         <li>Wiedergabe nutzt die lokale Datei – offline ohne Netz.</li>
         <li>Laufende Downloads in der Zeile abbrechen, fertige mit dem Papierkorb löschen.</li>
@@ -519,7 +519,7 @@
     <div class="card">
       <h2>Téléchargements</h2>
       <ul>
-        <li>Touchez la flèche d’un épisode ; la progression apparaît dans la ligne et dans Téléchargements.</li>
+        <li>Touchez la flèche d’un épisode ; la progression apparaît dans la ligne et dans Téléchargements. Supprimer un téléchargement le retire aussi de « À suivre » : rien de supprimé n’est rejoué.</li>
         <li>Reprise après coupure réseau ou redémarrage de l’app.</li>
         <li>La lecture privilégie le fichier local : écoute hors ligne sans réseau.</li>
         <li>Annulez un téléchargement en cours depuis la ligne ; supprimez un terminé avec la corbeille.</li>
@@ -645,7 +645,7 @@
     <div class="card">
       <h2>Download</h2>
       <ul>
-        <li>Tocca la freccia sull’episodio; il progresso appare nella riga e in Download.</li>
+        <li>Tocca la freccia sull’episodio; il progresso appare nella riga e in Download. Eliminando un download sparisce anche da “In coda”: non viene riprodotto nulla di eliminato.</li>
         <li>Riprende dopo perdita di rete o riavvio dell’app.</li>
         <li>La riproduzione usa il file locale: offline senza rete.</li>
         <li>Annulla i download in corso dalla riga; elimina i completati col cestino.</li>
@@ -714,7 +714,7 @@
 
   <footer>
     <a href="./index.html">Privacy</a> · <a href="./support.html">Support</a>
-    <div style="margin-top:6px">© 2026 PodNook · v1.2.0</div>
+    <div style="margin-top:6px">© 2026 PodNook · v1.2.1</div>
   </footer>
 </div>
 
@@ -727,11 +727,11 @@
     var title = document.getElementById('pageTitle');
     var updated = document.getElementById('pageUpdated');
     var strings = {
-      en: { title: 'Support', updated: 'Version 1.2.0 · Last updated: November 26, 2026' },
-      zh: { title: '支持', updated: '版本 1.2.0 · 最后更新：2026 年 11 月 26 日' },
-      de: { title: 'Support', updated: 'Version 1.2.0 · Zuletzt aktualisiert: 26. November 2026' },
-      fr: { title: 'Assistance', updated: 'Version 1.2.0 · Dernière mise à jour : 26 novembre 2026' },
-      it: { title: 'Assistenza', updated: 'Versione 1.2.0 · Ultimo aggiornamento: 26 novembre 2026' }
+      en: { title: 'Support', updated: 'Version 1.2.1 · Last updated: November 26, 2026' },
+      zh: { title: '支持', updated: '版本 1.2.1 · 最后更新：2026 年 11 月 26 日' },
+      de: { title: 'Support', updated: 'Version 1.2.1 · Zuletzt aktualisiert: 26. November 2026' },
+      fr: { title: 'Assistance', updated: 'Version 1.2.1 · Dernière mise à jour : 26 novembre 2026' },
+      it: { title: 'Assistenza', updated: 'Versione 1.2.1 · Ultimo aggiornamento: 26 novembre 2026' }
     };
 
     function apply(lang) {
